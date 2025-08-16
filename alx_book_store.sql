@@ -33,13 +33,14 @@ CREATE TABLE Customers (
 -- Create the Orders table
 CREATE TABLE Orders (
     order_id INT PRIMARY KEY,
-    customer_id INT,
-    order_date DATE NOT NULL
+    customer_id INT FOREIGN KEY,
+    order_date DATE NOT NULL,
+    FOREIGN KEY(customer_id) REFERENCES Customers(customer_id)
 );
 
 -- Create the Order_Details table
 CREATE TABLE Order_Details (
-    orderdetailid INT PRIMARY KEY,
+    order_detail_id INT PRIMARY KEY,
     order_id INT,
     book_id INT,
     quantity DOUBLE NOT NULL,
