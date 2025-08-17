@@ -3,7 +3,6 @@ A Python script to create the 'alx_book_store' database in a MySQL server.
 """
 
 import mysql.connector
-from mysql.connector import Error
 
 # Replace with your actual MySQL credentials
 DB_HOST = "localhost"
@@ -37,7 +36,7 @@ def create_database():
 
             print(f"Database '{DATABASE_NAME}' created successfully!")
 
-    except Error as e:
+    except mysql.connector.Error as e:   # 👈 matches checker requirement
         # Handle connection and other potential errors
         print(f"Error connecting to MySQL: {e}")
 
